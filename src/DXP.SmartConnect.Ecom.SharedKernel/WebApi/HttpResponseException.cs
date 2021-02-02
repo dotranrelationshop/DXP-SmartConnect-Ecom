@@ -26,7 +26,7 @@ namespace DXP.SmartConnect.Ecom.SharedKernel.WebApi
         }
 
         protected HttpResponseException(SerializationInfo info, StreamingContext context) : base(info, context)
-        { 
+        {
         }
     }
 }

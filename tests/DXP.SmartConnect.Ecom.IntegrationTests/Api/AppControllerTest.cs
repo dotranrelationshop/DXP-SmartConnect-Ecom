@@ -1,5 +1,4 @@
-﻿using DXP.SmartConnect.Ecom.API;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 

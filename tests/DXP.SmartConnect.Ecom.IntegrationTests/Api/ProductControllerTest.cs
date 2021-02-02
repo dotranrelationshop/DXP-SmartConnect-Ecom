@@ -1,5 +1,4 @@
-﻿using DXP.SmartConnect.Ecom.API;
-using DXP.SmartConnect.Ecom.Core.DTOs;
+﻿using DXP.SmartConnect.Ecom.Core.DTOs;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
