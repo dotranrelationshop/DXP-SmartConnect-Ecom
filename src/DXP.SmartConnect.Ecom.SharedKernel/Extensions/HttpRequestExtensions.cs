@@ -28,8 +28,7 @@ namespace DXP.SmartConnect.Ecom.SharedKernel.Extensions
         /// <param name="header">The list of header</param>
         public static void SetContentType(this HttpRequestMessage request, Dictionary<string, string> header)
         {
-            string headerValue = "";
-            if (header != null && request.Content != null && header.TryGetValue(WebApiContent.HeaderContentType, out headerValue))
+            if (header != null && request.Content != null && header.TryGetValue(WebApiContent.HeaderContentType, out string headerValue))
             {
                 MediaTypeHeaderValue mediaTypeValue = null;
                 if (MediaTypeHeaderValue.TryParse(headerValue, out mediaTypeValue))

@@ -1,6 +1,6 @@
+using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
 using Microsoft.Extensions.Logging;
 using Moq;
-using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
 using System;
 using System.Net;
 using System.Net.Http;

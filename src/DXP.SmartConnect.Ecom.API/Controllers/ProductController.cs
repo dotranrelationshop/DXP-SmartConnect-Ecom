@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using DXP.SmartConnect.Ecom.Core.DTOs;
+﻿using DXP.SmartConnect.Ecom.Core.DTOs;
 using DXP.SmartConnect.Ecom.Core.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace DXP.SmartConnect.Ecom.API.Controllers
@@ -16,7 +16,7 @@ namespace DXP.SmartConnect.Ecom.API.Controllers
 
         // GET: ​api​/Product​/GetProductByUpc
         [HttpGet("GetProductByUpc")]
-        public async Task<ProductDTO> GetProductByUpc(string storeId, string upc)
+        public async Task<ProductDto> GetProductByUpc(string storeId, string upc)
         {
             var product = await _productService.GetProductByUpcAsync(storeId, upc);
             return product;

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DXP.SmartConnect.Ecom.Core.Settings;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using DXP.SmartConnect.Ecom.Core.Settings;
 
 namespace DXP.SmartConnect.Ecom.API.Controllers
 {

@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using DXP.SmartConnect.Ecom.Core.Entities;
+﻿using DXP.SmartConnect.Ecom.Core.Entities;
 using DXP.SmartConnect.Ecom.Core.Interfaces;
 using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -11,7 +10,7 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
 {
     public class ProductWebApiClient : WebApiClient, IProductWebApiClient
     {
-        private static HttpStatusCode[] _productHttpStatusCodesSuccessfully = {
+        private static readonly HttpStatusCode[] _productHttpStatusCodesSuccessfully = {
            HttpStatusCode.OK, // 200
            HttpStatusCode.NoContent, // 204
            HttpStatusCode.NotFound // 404

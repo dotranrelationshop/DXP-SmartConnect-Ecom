@@ -2,7 +2,7 @@
 
 namespace DXP.SmartConnect.Ecom.Core.Entities
 {
-    public class ProductUnit : BaseEntity
+    public class ProductUnit : BaseEntity<string>
     {
         public string Abbreviation { set; get; }
         public string Type { set; get; }

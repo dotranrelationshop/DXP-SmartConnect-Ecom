@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
 
 namespace DXP.SmartConnect.Ecom.SharedKernel.Extensions

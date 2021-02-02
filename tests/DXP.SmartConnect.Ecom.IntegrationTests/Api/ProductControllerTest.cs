@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using DXP.SmartConnect.Ecom.API;
+﻿using DXP.SmartConnect.Ecom.API;
 using DXP.SmartConnect.Ecom.Core.DTOs;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,11 +8,11 @@ using Xunit;
 
 namespace DXP.SmartConnect.Ecom.FunctionalTests.Api
 {
-    public class ProductControllerTest : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class ProductControllerTest : IClassFixture<CustomWebApplicationFactory>
     {
         private readonly HttpClient _client;
 
-        public ProductControllerTest(CustomWebApplicationFactory<Startup> factory)
+        public ProductControllerTest(CustomWebApplicationFactory factory)
         {
             _client = factory.CreateClient();
         }
@@ -28,7 +28,7 @@ namespace DXP.SmartConnect.Ecom.FunctionalTests.Api
             var response = await _client.GetAsync($"/api/Product/GetProductByUpc?storeId={storeId}&upc={upc}");
             response.EnsureSuccessStatusCode();
             var stringResponse = await response.Content.ReadAsStringAsync();
-            var product = JsonConvert.DeserializeObject<ProductDTO>(stringResponse);
+            var product = JsonConvert.DeserializeObject<ProductDto>(stringResponse);
 
             // assert
             Assert.NotNull(product);

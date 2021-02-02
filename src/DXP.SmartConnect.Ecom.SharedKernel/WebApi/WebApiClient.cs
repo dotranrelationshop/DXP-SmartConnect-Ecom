@@ -1,14 +1,13 @@
-﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
 using DXP.SmartConnect.Ecom.SharedKernel.ValueObjects;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DXP.SmartConnect.Ecom.SharedKernel.WebApi
@@ -94,7 +93,7 @@ namespace DXP.SmartConnect.Ecom.SharedKernel.WebApi
                                           Dictionary<string, string> header = null,
                                           HttpStatusCode[] httpStatusCodesSuccessfully = null) where T : new()
         {
-            httpStatusCodesSuccessfully = httpStatusCodesSuccessfully ?? HttpStatusCodes.DefaultSuccessfully;
+            httpStatusCodesSuccessfully ??= HttpStatusCodes.DefaultSuccessfully;
             T value = default(T);
 
             var watch = new Stopwatch();

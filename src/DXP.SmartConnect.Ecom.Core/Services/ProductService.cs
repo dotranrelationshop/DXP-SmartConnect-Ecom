@@ -13,11 +13,11 @@ namespace DXP.SmartConnect.Ecom.Core.Services
             _productWebApiClient = productWebApiClient;
         }
 
-        public async Task<ProductDTO> GetProductByUpcAsync(string storeId, string upc)
+        public async Task<ProductDto> GetProductByUpcAsync(string storeId, string upc)
         {
             var product = await _productWebApiClient.GetProductByUpcAsync(storeId, upc);
 
-            return ProductDTO.FromProduct(product);
+            return ProductDto.FromProduct(product);
         }
     }
 }

@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
+using DXP.SmartConnect.Ecom.SharedKernel.ValueObjects;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Polly;
 using Polly.CircuitBreaker;
 using Polly.Extensions.Http;
 using Polly.Registry;
 using Polly.Timeout;
-using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
-using DXP.SmartConnect.Ecom.SharedKernel.ValueObjects;
 using System;
 using System.Linq;
 using System.Net.Http;

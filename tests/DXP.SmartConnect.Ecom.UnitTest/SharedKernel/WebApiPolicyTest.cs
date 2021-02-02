@@ -1,13 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
+using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
+using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using Polly;
 using Polly.CircuitBreaker;
 using Polly.Timeout;
-using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
-using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
-using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -51,7 +51,8 @@ namespace DXP.SmartConnect.Ecom.Test.SharedKernel
         {
             var policy = _mockPolicyFactory.CreateTimeoutPolicy();
 
-            var path = "200?sleep=10000"; // delay on response for 5 sec;
+            // delay on response for 10 sec
+            var path = "200?sleep=10000";
 
             // act
             var watch = new Stopwatch();
@@ -65,6 +66,7 @@ namespace DXP.SmartConnect.Ecom.Test.SharedKernel
 
             // assert
             Assert.IsType<TimeoutRejectedException>(exc);
+            Assert.True(time < 10000);
         }
 
         [Fact]

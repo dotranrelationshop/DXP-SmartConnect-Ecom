@@ -5,6 +5,6 @@ namespace DXP.SmartConnect.Ecom.Core.Interfaces
 {
     public interface IProductService
     {
-        Task<ProductDTO> GetProductByUpcAsync(string storeId, string upc);
+        Task<ProductDto> GetProductByUpcAsync(string storeId, string upc);
     }
 }

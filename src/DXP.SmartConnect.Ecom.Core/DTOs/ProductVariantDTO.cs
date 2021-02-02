@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DXP.SmartConnect.Ecom.Core.DTOs
+﻿namespace DXP.SmartConnect.Ecom.Core.DTOs
 {
-    public class ProductVariantDTO
+    public class ProductVariantDto
     {
     }
 }

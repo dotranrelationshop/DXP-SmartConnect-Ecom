@@ -1,17 +1,15 @@
-﻿using Newtonsoft.Json;
-using DXP.SmartConnect.Ecom.API;
-using DXP.SmartConnect.Ecom.Core.DTOs;
+﻿using DXP.SmartConnect.Ecom.API;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace DXP.SmartConnect.Ecom.FunctionalTests.Api
 {
-    public class AppControllerTest : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class AppControllerTest : IClassFixture<CustomWebApplicationFactory>
     {
         private readonly HttpClient _client;
 
-        public AppControllerTest(CustomWebApplicationFactory<Startup> factory)
+        public AppControllerTest(CustomWebApplicationFactory factory)
         {
             _client = factory.CreateClient();
         }

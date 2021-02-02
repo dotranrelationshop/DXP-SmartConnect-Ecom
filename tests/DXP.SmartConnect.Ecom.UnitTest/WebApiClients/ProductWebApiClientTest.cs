@@ -1,13 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
-using DXP.SmartConnect.Ecom.Core.Entities;
+﻿using DXP.SmartConnect.Ecom.Core.Entities;
 using DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients;
-using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.Extensions.Logging;
+using Moq;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

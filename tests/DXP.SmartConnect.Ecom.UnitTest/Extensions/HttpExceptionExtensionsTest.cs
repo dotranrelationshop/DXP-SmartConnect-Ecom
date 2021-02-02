@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
+using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Moq;
-using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
-using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -46,7 +46,7 @@ namespace DXP.SmartConnect.Ecom.UnitTests.Extensions
             var webApiClient = new WebApiClient(mockLogger.Object, server.CreateClient());
 
             // acc
-            var exc = (HttpResponseException) Record.Exception(() => webApiClient.GetAsync<object>(path).GetAwaiter().GetResult());
+            var exc = (HttpResponseException)Record.Exception(() => webApiClient.GetAsync<object>(path).GetAwaiter().GetResult());
 
             // assert
             Assert.NotNull(exc);

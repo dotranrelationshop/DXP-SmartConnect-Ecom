@@ -29,7 +29,7 @@ namespace DXP.SmartConnect.Ecom.SharedKernel.WebApi
                 context.Response.ContentType = "application/json";
                 await context.Response.Body.WriteAsync(data, 0, data.Length);
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 

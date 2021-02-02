@@ -1,12 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
-using Microsoft.Extensions.Configuration;
-using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
-using DXP.SmartConnect.Ecom.Core.Interfaces;
+﻿using DXP.SmartConnect.Ecom.Core.Interfaces;
 using DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients;
 using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
+using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
+using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
-using DXP.SmartConnect.Ecom.Core.Settings;
 
 namespace DXP.SmartConnect.Ecom.Infrastructure.Extensions
 {

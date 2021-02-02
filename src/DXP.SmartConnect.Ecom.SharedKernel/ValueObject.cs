@@ -31,9 +31,9 @@ namespace DXP.SmartConnect.Ecom.SharedKernel
             return !(obj1 == obj2);
         }
 
-        public bool Equals(ValueObject obj)
+        public bool Equals(ValueObject other)
         {
-            return Equals(obj as object);
+            return Equals(other as object);
         }
 
         public override bool Equals(object obj)
@@ -62,9 +62,6 @@ namespace DXP.SmartConnect.Ecom.SharedKernel
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .Where(p => p.GetCustomAttribute(typeof(IgnoreMemberAttribute)) == null)
                     .ToList();
-
-                // Not available in Core
-                // !Attribute.IsDefined(p, typeof(IgnoreMemberAttribute))).ToList();
             }
 
             return this.properties;

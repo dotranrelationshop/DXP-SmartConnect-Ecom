@@ -2,7 +2,7 @@
 
 namespace DXP.SmartConnect.Ecom.Core.Entities
 {
-    public class ProductCategory : BaseEntity
+    public class ProductCategory : BaseEntity<string>
     {
         public string CategoryId { set; get; }
         public string RetailerId { set; get; }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DXP.SmartConnect.Ecom.Core.DTOs
 {
-    public class ProductDTO
+    public class ProductDto
     {
         public string Id { get; set; }
         public String Name { get; set; }
@@ -38,25 +38,25 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
         public Nullable<int> CurrentStock { get; set; }
         public Nullable<int> LowStock { get; set; }
         public string Information { get; set; }
-        public ICollection<ProductVariantDTO> ProductVariants { get; set; }
-        public ICollection<ProductAtributeDTO> ProductAttributes { get; set; }
-        public ICollection<ProductCategoryDTO> ProductCategories { get; set; }
+        public ICollection<ProductVariantDto> ProductVariants { get; set; }
+        public ICollection<ProductAtributeDto> ProductAttributes { get; set; }
+        public ICollection<ProductCategoryDto> ProductCategories { get; set; }
         public string PriceText { get; set; }
         public string SaleInfo { get; set; }
         public string Category { get; set; }
         public string ExternalId { get; set; }
-        public List<SizesDTO> Sizes { set; get; }
+        public List<SizesDto> Sizes { set; get; }
         public string ItemKey { set; get; }
         public string UnitPrice { set; get; }
-        public PointRedemptionDTO PointRedemptionInfo { get; set; }
+        public PointRedemptionDto PointRedemptionInfo { get; set; }
         public string Disclaimer { set; get; }
         public string Ingredients { set; get; }
 
-        public static ProductDTO FromProduct(Product item)
+        public static ProductDto FromProduct(Product item)
         {
             if (item != null)
             {
-                return new ProductDTO()
+                return new ProductDto()
                 {
                     Id = item.Sku,
                     Name = item.Name
