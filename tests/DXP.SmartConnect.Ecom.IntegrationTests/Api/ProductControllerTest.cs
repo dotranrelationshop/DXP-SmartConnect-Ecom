@@ -48,5 +48,37 @@ namespace DXP.SmartConnect.Ecom.FunctionalTests.Api
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
             Assert.Contains("ApiException", stringResponse);
         }
+
+        [Fact]
+        public async Task GetProductByUpcDbTest_ReturnsProduct()
+        {
+            // arrange 
+            var storeId = "502";
+            var upc = "38375";
+
+            // act
+            var response = await _client.GetAsync($"/api/Product/GetProductByUpcDb?storeId={storeId}&upc={upc}");
+            response.EnsureSuccessStatusCode();
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            var product = JsonConvert.DeserializeObject<ProductDto>(stringResponse);
+
+            // assert
+            Assert.NotNull(product);
+        }
+
+        [Fact]
+        public async Task GetProductByUpcDbTest_ReturnsProductNoContent()
+        {
+            // arrange 
+            var storeId = "5022";
+            var upc = "000559";
+
+            // act
+            var response = await _client.GetAsync($"/api/Product/GetProductByUpcDb?storeId={storeId}&upc={upc}");
+            var stringResponse = await response.Content.ReadAsStringAsync();
+
+            // assert
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+        }
     }
 }

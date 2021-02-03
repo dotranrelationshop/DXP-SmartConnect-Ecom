@@ -1,8 +1,10 @@
 ﻿using DXP.SmartConnect.Ecom.Core.Interfaces;
+using DXP.SmartConnect.Ecom.Infrastructure.Data.Database;
 using DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients;
 using DXP.SmartConnect.Ecom.SharedKernel.Extensions;
 using DXP.SmartConnect.Ecom.SharedKernel.Interfaces;
 using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,18 +17,10 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Extensions
         {
             string providerRequestUri = config.GetSection("ProviderSettings")?["RequestUri"];
 
-            services
-                .Configure<WebApiFaultHandleConfiguration>(c =>
-            {
-                var settings = config.GetSection("FaultHanderSettings");
-                c.DurationOnBreakInSec = int.Parse(settings["DurationOnBreakInSec"]);
-                c.WebApiTimeoutInMs = int.Parse(settings["WebApiTimeoutInMs"]);
-                c.ExceptionsAllowedBeforeBreaking = int.Parse(settings["ExceptionsAllowedBeforeBreaking"]);
-                c.InitialRetryDelayInSec = int.Parse(settings["InitialRetryDelayInSec"]);
-                c.MaxRetryAttempts = int.Parse(settings["MaxRetryAttempts"]);
-            });
-            services
-                .AddSingleton<IWebApiPolicyFactory, WebApiPolicyFactory>();
+            services.AddDbContext<DBContext>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+            services.Configure<WebApiFaultHandleConfiguration>(config.GetSection("FaultHanderSettings"));
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddSingleton<IWebApiPolicyFactory, WebApiPolicyFactory>();
             services
                 .AddHttpClient<IProductWebApiClient, ProductWebApiClient>(client =>
                     client.BaseAddress = new Uri(providerRequestUri))

@@ -35,10 +35,6 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.Database
             {
                 entity.ToTable("RS_Product");
 
-                entity.Property(e => e.ProductId).HasMaxLength(100);
-
-                entity.Property(e => e.Sku).HasMaxLength(50);
-
                 entity.Property(e => e.Name).HasMaxLength(500);
             });
         }

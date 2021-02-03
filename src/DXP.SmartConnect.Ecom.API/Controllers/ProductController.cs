@@ -21,5 +21,13 @@ namespace DXP.SmartConnect.Ecom.API.Controllers
             var product = await _productService.GetProductByUpcAsync(storeId, upc);
             return product;
         }
+
+        // GET: ​api​/Product​/GetProductByUpc
+        [HttpGet("GetProductByUpcDb")]
+        public async Task<ProductDto> GetProductByUpcDb(string storeId, string upc)
+        {
+            var product = await _productService.GetProductByUpcDbAsync(storeId, upc);
+            return product;
+        }
     }
 }

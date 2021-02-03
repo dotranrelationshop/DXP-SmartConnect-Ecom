@@ -1,7 +1,6 @@
 ﻿using DXP.SmartConnect.Ecom.Core.Entities;
 using DXP.SmartConnect.Ecom.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace DXP.SmartConnect.Ecom.Infrastructure.Data.Database
@@ -12,9 +11,9 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.Database
         {
         }
 
-        public Task<RsProduct> GetProductByUpcAsync(string storeId, string upc)
+        public Task<RsProduct> GetProductByUpcAsync(string storeId, int upc)
         {
-            return _dbContext.RsProduct.FirstOrDefaultAsync(p => p.Sku == upc);
+            return _dbContext.RsProduct.AsQueryable().FirstOrDefaultAsync(p => p.Id == upc);
         }
     }
 }

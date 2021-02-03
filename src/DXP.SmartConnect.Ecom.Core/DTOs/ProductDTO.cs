@@ -64,5 +64,18 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
             }
             return null;
         }
+
+        public static ProductDto FromRsProduct(RsProduct item)
+        {
+            if (item != null)
+            {
+                return new ProductDto()
+                {
+                    Id = item.Id.ToString(),
+                    Name = item.Name
+                };
+            }
+            return null;
+        }
     }
 }
