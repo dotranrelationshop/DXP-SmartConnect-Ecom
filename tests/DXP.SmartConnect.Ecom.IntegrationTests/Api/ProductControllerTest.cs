@@ -79,6 +79,7 @@ namespace DXP.SmartConnect.Ecom.FunctionalTests.Api
 
             // assert
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+            Assert.NotNull(stringResponse);
         }
     }
 }

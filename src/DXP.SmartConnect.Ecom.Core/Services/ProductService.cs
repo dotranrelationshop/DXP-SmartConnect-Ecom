@@ -1,5 +1,4 @@
 ﻿using DXP.SmartConnect.Ecom.Core.DTOs;
-using DXP.SmartConnect.Ecom.Core.Entities;
 using DXP.SmartConnect.Ecom.Core.Interfaces;
 using System.Threading.Tasks;
 

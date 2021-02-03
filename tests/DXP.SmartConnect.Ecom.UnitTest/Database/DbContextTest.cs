@@ -1,13 +1,9 @@
 ﻿using DXP.SmartConnect.Ecom.Core.Entities;
-using DXP.SmartConnect.Ecom.Core.Interfaces;
 using DXP.SmartConnect.Ecom.Infrastructure.Data.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Moq;
 using System.Threading.Tasks;
 using Xunit;
-using Microsoft.Extensions.Logging.Debug;
-using Microsoft.Extensions.Logging.Console;
 
 namespace DXP.SmartConnect.Ecom.UnitTests.WebApiClients
 {
@@ -33,7 +29,6 @@ namespace DXP.SmartConnect.Ecom.UnitTests.WebApiClients
         public async Task GetProductAsyncTest_ReturnProduct()
         {
             // arrange 
-            var storeId = "502";
             var upc = 38375;
 
             // act
@@ -72,7 +67,7 @@ namespace DXP.SmartConnect.Ecom.UnitTests.WebApiClients
         }
 
         [Fact]
-        public async Task ParallelUpdateProductAsyncTest_ReturnException()
+        public void ParallelUpdateProductAsyncTest_ReturnException()
         {
             // arrange 
             var updateProduct = new RsProduct
@@ -89,7 +84,7 @@ namespace DXP.SmartConnect.Ecom.UnitTests.WebApiClients
 
             // act
             _dbContext.Entry(updateProduct).State = EntityState.Modified;
-            var result = _dbContext.SaveChangesAsync();
+            _dbContext.SaveChangesAsync();
 
             _dbContext.Entry(updateProduct2).State = EntityState.Modified;
             var result2 = Record.ExceptionAsync(() => _dbContext.SaveChangesAsync());
