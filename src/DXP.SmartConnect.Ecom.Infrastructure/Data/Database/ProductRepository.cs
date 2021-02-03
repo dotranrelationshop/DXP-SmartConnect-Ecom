@@ -13,7 +13,8 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.Database
 
         public Task<RsProduct> GetProductByUpcAsync(string storeId, int upc)
         {
-            return _dbContext.RsProduct.AsQueryable().FirstOrDefaultAsync(p => p.Id == upc);
+            var s = _dbContext.RsProduct.AsQueryable().FirstOrDefaultAsync(p => p.Id == upc);
+            return s;
         }
     }
 }

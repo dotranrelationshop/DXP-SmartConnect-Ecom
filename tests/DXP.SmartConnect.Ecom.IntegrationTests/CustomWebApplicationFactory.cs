@@ -31,7 +31,7 @@ namespace DXP.SmartConnect.Ecom.FunctionalTests
                 {
                     services.AddHttpClient<IProductWebApiClient, ProductWebApiClient>(client =>
                     client.BaseAddress = new Uri("https://storefrontgateway.unt.stg.v8.commerce.mi9cloud.com/api/"));
-                    services.AddDbContext<DBContext>(options => options.UseSqlServer(connectString));
+                    services.AddDbContext<DBContext>(options => options.UseSqlServer(connectString).EnableSensitiveDataLogging());
                 });
         }
     }
