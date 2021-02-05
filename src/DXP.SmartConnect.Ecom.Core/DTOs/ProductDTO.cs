@@ -45,7 +45,7 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
         public string SaleInfo { get; set; }
         public string Category { get; set; }
         public string ExternalId { get; set; }
-        public List<SizesDto> Sizes { set; get; }
+        public List<SizeDto> Sizes { set; get; }
         public string ItemKey { set; get; }
         public string UnitPrice { set; get; }
         public PointRedemptionDto PointRedemptionInfo { get; set; }

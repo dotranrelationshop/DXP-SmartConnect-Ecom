@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DXP.SmartConnect.Ecom.Core.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace DXP.SmartConnect.Ecom.Core.DTOs
@@ -32,7 +33,7 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
         public string CategoryName { get; set; }
         public string SaleInfo { get; set; }
         public double TotalPrice { get; set; }
-        public IList<SizesDto> Sizes { get; set; }
+        public IList<SizeDto> Sizes { get; set; }
         public string DefaultImage { get; set; }
         public string Brand { get; set; }
         public string UPC { get; set; }
@@ -47,5 +48,67 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
         public DateTime? SalePriceFromDate { get; set; }
         public DateTime? SalePriceToDate { get; set; }
         public decimal? SaleUnitPrice { get; set; }
+
+        /// <summary>
+        /// Transform object from type CartItem to type CartItemDto
+        /// </summary>
+        /// <returns>CartItemDto</returns>
+        public static CartItemDto FromCartItem(CartItem item, string userId, string storeId)
+        {
+            var cartItem = new CartItemDto
+            {
+                Message = item.Note,
+                Quantity = (int)item.QuantityValue,
+                UserId = userId,
+                UserName = userId,                 // User Name as User ID.
+                StoreId = storeId,                 // External Store ID as Store retailer id.
+                ProductVariantId = item.Sku,   // Variant ID as Product Id aka Sku.
+                ProductVariantName = $"{item.Brand} {item.Name}",
+                Id = item.Id,
+                //CategoryId = item.CategoryId,
+                CategoryName = item.Category,
+                PriceText = item.TotalPrice,
+                SaleInfo = item.TprInfo != null ? item.TprInfo.Label : "",
+                TotalPrice = double.Parse(item.TotalPrice),
+                DefaultImage = item.ImageUrl,
+                IsAvailable = item.Available,
+                ProductVariant = new ProductVariantDto
+                {
+                    Name = item.Name,
+                    Price = double.Parse(item.TotalPrice),
+                    //SalePrice = price,
+                    ProductId = item.Sku,
+                    Id = item.Sku,     // Variant ID as Product Id aka Sku.
+                    Description = item.Description,
+                    ProductName = item.Name,
+                    //RetailPrice = (decimal)price,
+                    Sku = item.Sku
+                },
+                Brand = item.Brand,
+                UPC = item.Sku,
+                AllowSubstitutions = item.AllowSubstitution
+            };
+
+            // Sizes.
+            List<SizeDto> productSizes = new List<SizeDto>();
+            if (item.UnitOfSize != null)
+            {
+                productSizes.Add(new SizeDto
+                {
+                    Size = item.UnitOfSize.Size.ToString(),
+                    ItemKey = item.UnitOfSize.Label
+                });
+                cartItem.Sizes = productSizes;
+            }
+            // Ingredients (not existed Mi9v8).
+            // InStock.
+            string inStock = "";
+            if (item.Attributes != null && item.Attributes.TryGetValue("Total On-Hand Qty", out inStock))
+            {
+                cartItem.InStock = int.Parse(inStock) > 0;
+            }
+
+            return cartItem;
+        }
     }
 }
