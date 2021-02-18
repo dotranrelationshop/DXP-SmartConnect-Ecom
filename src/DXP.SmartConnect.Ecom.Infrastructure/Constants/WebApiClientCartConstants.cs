@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DXP.SmartConnect.Ecom.Infrastructure.Constants
 {
-    public static class WebApiClientCartContentTypeConstants
+    public static class WebApiClientCartConstants
     {
         public const string AddProductLineItemsToCart = "application/vnd.cart.v1+json;domain-model=AddProductLineItemsToCart";
         public const string AddProductLineItemToCart = "application/vnd.cart.v1+json;domain-model=AddProductLineItemToCart";

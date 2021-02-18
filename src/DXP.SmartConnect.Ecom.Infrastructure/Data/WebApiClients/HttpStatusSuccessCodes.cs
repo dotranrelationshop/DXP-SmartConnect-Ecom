@@ -21,5 +21,31 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
         public static HttpStatusCode[] CartChange { get; } = {
            HttpStatusCode.Accepted // 202
         };
+
+        /// <summary>
+        /// List HttpStatus Codes for get checkout info accepted.
+        /// </summary>
+        public static HttpStatusCode[] GetCheckout { get; } = {
+            HttpStatusCode.OK, // 200
+            HttpStatusCode.NoContent, // 204
+            HttpStatusCode.NotFound // 404
+        };
+
+        /// <summary>
+        /// List HttpStatus Codes accepted when execute change command for checkout.
+        /// </summary>
+        public static HttpStatusCode[] CheckoutChange { get; } = {
+            HttpStatusCode.OK, // 200
+            HttpStatusCode.Accepted, // 202
+            HttpStatusCode.NoContent, // 204
+        };
+
+        /// <summary>
+        /// List HttpStatus Codes accepted when execute delete command for checkout.
+        /// </summary>
+        public static HttpStatusCode[] CheckoutDelete { get; } = {
+            HttpStatusCode.OK, // 200
+            HttpStatusCode.NoContent, // 204
+        };
     }
 }

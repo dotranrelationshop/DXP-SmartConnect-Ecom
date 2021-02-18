@@ -26,10 +26,10 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.AddProductLineItemToCart);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.AddProductLineItemToCart);
             item.Source = new CartItemSource // Required parameter.
             {
-                Type = WebApiClientCartContentTypeConstants.DefaultCartSourceType
+                Type = WebApiClientCartConstants.DefaultCartSourceType
             };
             var content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, WebApiClientConstants.ApplicationJson);
 
@@ -41,13 +41,13 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.AddProductLineItemsToCart);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.AddProductLineItemsToCart);
             var body = new
             {
                 LineItems = items,
                 Source = new CartItemSource // Required parameter.
                 {
-                    Type = WebApiClientCartContentTypeConstants.DefaultCartSourceType
+                    Type = WebApiClientCartConstants.DefaultCartSourceType
                 }
             };
             var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, WebApiClientConstants.ApplicationJson);
@@ -60,10 +60,10 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.DeleteCart);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.DeleteCart);
             var body = new
             {
-                Reason = WebApiClientCartContentTypeConstants.DeleteCartReason
+                Reason = WebApiClientCartConstants.DeleteCartReason
             };
             var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, WebApiClientConstants.ApplicationJson);
 
@@ -75,7 +75,7 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.RemoveLineItemFromCart);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.RemoveLineItemFromCart);
             var body = new
             {
                 LineItemId = itemId
@@ -96,7 +96,7 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.SetLineItemNote);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.SetLineItemNote);
             var body = new
             {
                 LineItemId = itemId,
@@ -112,7 +112,7 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.SetLineItemQuantity);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.SetLineItemQuantity);
             var body = new
             {
                 LineItemId = itemId,
@@ -128,7 +128,7 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             var path = $"stores/{storeId}/cart";
 
             var header = new Dictionary<string, string>();
-            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartContentTypeConstants.SetProductLineItemSubstitutionStatus);
+            header.Add(WebApiClientConstants.HeaderContentType, WebApiClientCartConstants.SetProductLineItemSubstitutionStatus);
             var body = new
             {
                 LineItemId = itemId,
