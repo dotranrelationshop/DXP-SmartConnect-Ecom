@@ -37,6 +37,11 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
             return PostAsync<bool>(path, HttpMethod.Patch, content, accessToken, null, HttpStatusSuccessCodes.CheckoutChange);
         }
 
+        public Task<bool> AddCustomerPaymentCards(string accessToken, string storeId, string transactionId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Task<bool> AddPromoCode(string accessToken, string storeId, string promoCode)
         {
             var path = $"/stores/{storeId}/checkout";
@@ -87,6 +92,28 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Data.WebApiClients
         public Task<PaymentMethod> GetPaymentMethod(string accessToken, string storeId)
         {
             throw new System.NotImplementedException();
+        }
+
+        public Task<PaymentTokenization> InitPaymentTokenization(string accessToken, string storeId, string transactionId, Payment payment)
+        {
+            var path = $"/payments/{storeId}/tokenization/tokenized-cards/transactions/{transactionId}";
+
+            var content = new StringContent(JsonConvert.SerializeObject(payment), Encoding.UTF8, WebApiClientConstants.ApplicationJson);
+
+            return PostAsync<PaymentTokenization>(path, HttpMethod.Put, content, accessToken, null, HttpStatusSuccessCodes.GetCheckout);
+        }
+
+        public Task<bool> PlaceOrder(string accessToken, string storeId, string cartVersion)
+        {
+            var path = $"/stores/{storeId}/orders";
+
+            var body = new
+            {
+                CartVersion = cartVersion
+            };
+            var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, WebApiClientConstants.ApplicationJson);
+
+            return PostAsync<bool>(path, HttpMethod.Post, content, accessToken, null, HttpStatusSuccessCodes.CheckoutChange);
         }
 
         public Task<bool> RemoveCustomerPaymentCard(string accessToken, string storeId, string cardType, string cardNumber)

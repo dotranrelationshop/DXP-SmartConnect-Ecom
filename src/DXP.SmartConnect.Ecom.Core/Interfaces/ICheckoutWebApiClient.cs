@@ -52,6 +52,13 @@ namespace DXP.SmartConnect.Ecom.Core.Interfaces
         /// <returns>Credit card info</returns>
         Task<IList<PaymentCustomerCard>> GetCustomerPaymentCards(string accessToken, string storeId);
         /// <summary>
+        /// Add customer credit card info for checkout.
+        /// </summary>
+        /// <param name="storeId">Retailer Store Id </param>
+        /// <param name="transactionId">Transaction Id </param>
+        /// <returns>Status of command</returns>
+        Task<bool> AddCustomerPaymentCards(string accessToken, string storeId, string transactionId);
+        /// <summary>
         /// Remove customer credit card.
         /// </summary>
         /// <param name="storeId">Retailer Store Id </param>
@@ -73,5 +80,21 @@ namespace DXP.SmartConnect.Ecom.Core.Interfaces
         /// <param name="notes">Comment </param>
         /// <returns>Status of command</returns>
         Task<bool> AddCommnent(string accessToken, string storeId, string notes);
+        /// <summary>
+        /// Initiates a new payment tokenization.
+        /// </summary>
+        /// <param name="storeId">Retailer Store Id </param>
+        /// <param name="transactionId">Transaction Id  </param>
+        /// <param name="payment">Payment info </param>
+        /// <returns>Payment Tokenization info</returns>
+        Task<PaymentTokenization> InitPaymentTokenization(string accessToken, string storeId, string transactionId, Payment payment);
+
+        /// <summary>
+        /// Place new order.
+        /// </summary>
+        /// <param name="storeId">Retailer Store Id </param>
+        /// <param name="cartVersion">Cart Version  </param>
+        /// <returns>Status of command</returns>
+        Task<bool> PlaceOrder(string accessToken, string storeId, string cartVersion);
     }
 }
