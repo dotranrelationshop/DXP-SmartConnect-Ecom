@@ -14,5 +14,6 @@ namespace DXP.SmartConnect.Ecom.Core.Entities
         public string Region { set; get; }
         public string Source { set; get; }
         public string TownCity { set; get; }
+        public string Phone { set; get; }
     }
 }

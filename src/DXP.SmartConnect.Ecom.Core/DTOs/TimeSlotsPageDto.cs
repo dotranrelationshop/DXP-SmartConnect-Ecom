@@ -11,7 +11,7 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
     {
         public IList<TimeSlotsDayDto> Days { set; get; }
         public int CurrentPage { set; get; }
-        public object PageLimit { set; get; }
+        public int PageLimit { set; get; }
         public string RetailerStoreId { set; get; }
         public string ShoppingModeId { set; get; }
 
