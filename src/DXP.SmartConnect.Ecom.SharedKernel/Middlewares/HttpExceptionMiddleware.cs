@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DXP.SmartConnect.Ecom.SharedKernel.WebApi
+namespace DXP.SmartConnect.Ecom.SharedKernel.Middlewares
 {
     internal class HttpExceptionMiddleware
     {

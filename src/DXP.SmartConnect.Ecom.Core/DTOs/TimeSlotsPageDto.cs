@@ -1,9 +1,6 @@
 ﻿using DXP.SmartConnect.Ecom.Core.Entities;
-using DXP.SmartConnect.Ecom.SharedKernel;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DXP.SmartConnect.Ecom.Core.DTOs
 {
@@ -34,7 +31,7 @@ namespace DXP.SmartConnect.Ecom.Core.DTOs
 
                 if (item.Days?.Any() ?? false)
                 {
-                    foreach(var day in item.Days)
+                    foreach (var day in item.Days)
                     {
                         slotsPage.Days.Add(TimeSlotsDayDto.FromTimeSlotsDay(day));
                     }

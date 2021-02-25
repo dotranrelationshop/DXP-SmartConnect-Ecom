@@ -6,7 +6,7 @@ namespace DXP.SmartConnect.Ecom.Core.Entities
     {
         public CustomerAddress BillingAddress { set; get; }
         public string CardIssuer { set; get; }
-        public string FourDigitCardMask { set; get; } 
+        public string FourDigitCardMask { set; get; }
         public string NameOnCard { set; get; }
         public string PaymentToken { set; get; }
         public string Type { set; get; }

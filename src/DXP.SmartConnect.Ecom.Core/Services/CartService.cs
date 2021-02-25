@@ -105,7 +105,7 @@ namespace DXP.SmartConnect.Ecom.Core.Services
                 }
             }
 
-            return  await _cartWebApiClient.AddItemsToCart(_setting.AccessToken, storeId, listProductToAdd);
+            return await _cartWebApiClient.AddItemsToCart(_setting.AccessToken, storeId, listProductToAdd);
         }
 
         public async Task<CartDto> UpdateCartItem(CartItemDto cartItem)

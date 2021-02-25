@@ -19,12 +19,22 @@ namespace DXP.SmartConnect.Ecom.Infrastructure.Extensions
 
             services.AddDbContext<DBContext>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.Configure<WebApiFaultHandleConfiguration>(config.GetSection("FaultHanderSettings"));
+
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddSingleton<IWebApiPolicyFactory, WebApiPolicyFactory>();
+
             services
                 .AddHttpClient<IProductWebApiClient, ProductWebApiClient>(client =>
                     client.BaseAddress = new Uri(providerRequestUri))
                 .AddFaultHandlePolicies();
+            services
+               .AddHttpClient<ICartWebApiClient, CartWebApiClient>(client =>
+                   client.BaseAddress = new Uri(providerRequestUri))
+               .AddFaultHandlePolicies();
+            services
+               .AddHttpClient<ICheckoutWebApiClient, CheckoutWebApiClient>(client =>
+                   client.BaseAddress = new Uri(providerRequestUri))
+               .AddFaultHandlePolicies();
 
             return services;
         }

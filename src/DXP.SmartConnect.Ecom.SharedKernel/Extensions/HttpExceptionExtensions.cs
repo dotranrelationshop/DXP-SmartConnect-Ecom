@@ -1,4 +1,4 @@
-﻿using DXP.SmartConnect.Ecom.SharedKernel.WebApi;
+﻿using DXP.SmartConnect.Ecom.SharedKernel.Middlewares;
 using Microsoft.AspNetCore.Builder;
 
 namespace DXP.SmartConnect.Ecom.SharedKernel.Extensions

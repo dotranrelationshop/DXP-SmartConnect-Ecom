@@ -32,6 +32,8 @@ namespace DXP.SmartConnect.Ecom.API
             services.AddControllers();
 
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICheckoutService, CheckoutService>();
 
             // Default Infrastructure Service DI
             services.AddInfrastructureServiceConfig(Configuration);
@@ -69,6 +71,9 @@ namespace DXP.SmartConnect.Ecom.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Remove this extension if it affects performance in a production environment.
+            app.UseApiRequestResponseLogging();
 
             app.UseHttpsRedirection();
 
